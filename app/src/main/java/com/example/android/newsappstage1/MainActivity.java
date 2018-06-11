@@ -43,10 +43,8 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
      */
     private static final int NEWS_LOADER_ID = 1;
 
-
-    private static final String LOG_TAG = MainActivity.class.getName();
     /**
-     * URL for earthquake data from the Guardian API dataset
+     * URL for news data from the Guardian API dataset
      */
     private static final String GUARDIAN_REQUEST_URL =
             "https://content.guardianapis.com/search?api-key=ee8cdd8c-a40c-4845-af4d-c393612b6312&show-tags=contributor&show-fields=thumbnail";
@@ -142,8 +140,6 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
 
-
-
         // parse breaks apart the URI string that's passed into its parameter
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
 
@@ -151,24 +147,14 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
 
-
-       String orderBy = sharedPrefs.getString(
-               getString(R.string.settings_order_by_key),
-               getString(R.string.settings_order_by_default));
-
+        String sectionSelection = sharedPrefs.getString(
+                getString(R.string.settings_section_filter),
+                getString(R.string.settings_section_filter_default));
 
         // Append query parameter and its value. For example, the section=politics
-
-        uriBuilder.appendQueryParameter("show-reference", "author");
-        uriBuilder.appendQueryParameter("orderBy", "newest");
-        uriBuilder.appendQueryParameter("orderBy", orderBy);
-
-
-        /*can be all,contributor,keyword,newspaper-book,publication,series,tone,type,...*/
-        uriBuilder.appendQueryParameter("show-tags", "contributor");
-
-
-
+        if (!sectionSelection.equals(getString(R.string.settings_section_filter_default))) {
+            uriBuilder.appendQueryParameter("section", sectionSelection);
+        }
 
         // Return the completed uri
         return new NewsLoader(this, uriBuilder.toString());

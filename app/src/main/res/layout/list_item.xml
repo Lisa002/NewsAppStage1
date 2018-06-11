@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:paddingTop="16dp"
-    android:paddingEnd="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingStart="16dp">
+    android:minHeight="@dimen/list_item_height"
+    >
+
+    <ImageView
+        android:id="@+id/thumbnail_image_view"
+        android:layout_width="113dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/date_and_time_text_view"
+        android:scaleType="centerCrop" />
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="257dp"
         android:layout_height="@dimen/list_item_height"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@id/thumbnail_image_view"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp">
+
+        <View style="@style/HorizontalDivider" />
+
 
         <TextView
             android:id="@+id/rubric_text_view"
@@ -25,9 +35,11 @@
             android:ellipsize="end"
             android:fontFamily="sans-serif-medium"
             android:maxLines="1"
+            android:paddingBottom="10dp"
             android:textAllCaps="true"
             android:textColor="@color/textColorNewsTitleAndRubric"
             android:textSize="13sp" />
+
 
         <TextView
             android:id="@+id/author_text_view"
@@ -36,6 +48,7 @@
             android:ellipsize="end"
             android:fontFamily="sans-serif-medium"
             android:maxLines="1"
+            android:paddingBottom="8dp"
             android:textAllCaps="true"
             android:textColor="@color/textColorAuthorAndDateAndTime"
             android:textSize="12sp" />
@@ -44,19 +57,23 @@
             android:id="@+id/title_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@android:color/holo_red_light"
             android:ellipsize="end"
-            android:maxLines="4"
-            android:textColor="@color/textColorNewsTitleAndRubric"
-            android:textSize="16sp" />
+            android:maxLines="4" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:paddingTop="16dp"
+        android:id="@id/date_and_time_text_view"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:orientation="vertical">
+
 
         <TextView
             android:id="@+id/date_text_view"
@@ -74,5 +91,6 @@
             android:layout_gravity="end"
             android:textColor="@color/textColorAuthorAndDateAndTime"
             android:textSize="12sp" />
+
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

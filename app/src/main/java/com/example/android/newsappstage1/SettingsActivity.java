@@ -23,8 +23,8 @@ public class SettingsActivity extends AppCompatActivity {
             addPreferencesFromResource(R.xml.settings_main);
 
 
-            Preference orderBy = findPreference(getString(R.string.settings_order_by_key));
-            bindPreferenceSummaryToValue(orderBy);
+            Preference sectionSelection = findPreference(getString(R.string.settings_section_filter));
+            bindPreferenceSummaryToValue(sectionSelection);
 
         }
 

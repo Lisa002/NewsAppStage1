@@ -1,11 +1,20 @@
 package com.example.android.newsappstage1;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -34,6 +43,9 @@ public class NewsAdapter extends ArrayAdapter<OneNews> {
         //get the currentNews with the right position and stores it in the variable currentNews
         OneNews currentNews = getItem(position);
 
+        ImageView thumbnailImageView = (ImageView) listItemView.findViewById(R.id.thumbnail_image_view);
+        Picasso.get().load(currentNews.getThumbnail()).into(thumbnailImageView);
+
         //gets the title text view from the xml and stores it in the variable titleTextView
         TextView titleTextView = (TextView) listItemView.findViewById(R.id.title_text_view);
         // gets the title of the news from the currentNews object and stores it in the variable title
@@ -61,7 +73,6 @@ public class NewsAdapter extends ArrayAdapter<OneNews> {
         TextView timeTextView = (TextView) listItemView.findViewById(R.id.time_text_view);
         // gets the Date and time of the news from the currentNews object and stores it in the variable dateAndTime
         String dateAndTime = currentNews.getDateAndTime();
-
 
         // creates a new SimpleDateFormat object with the ISODateformat that is uses in the Guardian API and stores
         // in the variable dateTimeFormat

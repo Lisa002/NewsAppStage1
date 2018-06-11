@@ -17,6 +17,8 @@ public class OneNews {
     //member for the author in this class
     private String mauthor;
 
+    private String mThumbnail;
+
     // creates a object OneNews with the params
     //@param String rubric
     //@param String title
@@ -24,12 +26,13 @@ public class OneNews {
     //@param String rubric urlNews
     //@param String author
 
-    public OneNews(String rubric, String title, String dateAndTime, String urlNews, String author) {
+    public OneNews(String rubric, String title, String dateAndTime, String urlNews, String author, String thumbnail) {
         mRubric = rubric;
         mTitle = title;
         mDateandTime = dateAndTime;
         murlNews = urlNews;
         mauthor = author;
+        mThumbnail = thumbnail;
     }
 
     //creates the method getRubric that returns the String mRubric
@@ -55,5 +58,10 @@ public class OneNews {
     //creates the method getauthor that returns the String mauthor
     public String getauthor() {
         return mauthor;
+    }
+
+
+    public String getThumbnail(){
+        return mThumbnail;
     }
 }

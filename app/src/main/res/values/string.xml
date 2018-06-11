@@ -19,32 +19,32 @@
 
 
     <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
-    <string name="settings_order_by_label">Order By</string>
-    <string name="settings_order_by_key" translatable="false">order_by</string>
-    <string name="settings_order_by_default" translatable="false">@string/setting_show_all_sections_key_value</string>
+    <string name="settings_filter_by_label">Order By</string>
+    <string name="settings_section_filter" translatable="false">section</string>
+    <string name="settings_section_filter_default" translatable="false">@string/setting_show_all_sections_key_value</string>
 
-    <string name="setting_show_all_sections_label">All</string>
-    <string name="setting_show_all_sections_key_value">""</string>
+    <string name="setting_show_all_sections_label">Different News</string>
+    <string name="setting_show_all_sections_key_value">api-key</string>
 
 
 
     <!-- Label for order-by magnitude option [CHAR LIMIT=20] here define key-value and default and title -->
-    <string name="settings_order_by_politics_label">Politics</string>
-    <string name="settings_order_by_politics_key_value" >politics</string>
+    <string name="settings_filter_by_politics_label">Politics</string>
+    <string name="settings_filter_by_politics_key_value" >politics</string>
 
 
     <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
-    <string name="settings_order_by_business_label">Business</string>
-    <string name="settings_order_by_business_key" >business</string>
+    <string name="settings_filter_by_business_label">Business</string>
+    <string name="settings_filter_by_business_key_value" >business</string>
 
 
-    <string name="settings_rubric_World_News_label">World News</string>
-    <string name="settings_order_by_news_key" >news</string>
+    <string name="settings_filter_by_world_news_label">World News</string>
+    <string name="settings_filter_by_world_news_key_value" >world</string>
 
 
 
-    <string name="settings_rubric_music_label">Music</string>
-    <string name="settings_order_by_music_key" >music</string>
+    <string name="settings_filter_by_music_label">Music</string>
+    <string name="settings_filter_by_music_key_value" >music</string>
 
     <string name="settings_pref_title_rubric">Choose the rubric you want to receive news about.</string>
 

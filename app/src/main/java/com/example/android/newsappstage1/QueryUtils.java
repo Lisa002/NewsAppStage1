@@ -2,9 +2,11 @@ package com.example.android.newsappstage1;
 
 import android.text.TextUtils;
 import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -142,7 +144,7 @@ public final class QueryUtils {
             return null;
         }
 
-        // Create an empty ArrayList that we can start adding earthquakes to
+        // Create an empty ArrayList that we can start adding news to
         List<OneNews> news = new ArrayList<>();
 
         // Try to parse the JSON response string. If there's a problem with the way the JSON
@@ -175,6 +177,9 @@ public final class QueryUtils {
                 // Extract the value for the key called "webUrl"
                 String url = newsObject.getString("webUrl");
 
+                JSONObject fields = newsObject.getJSONObject("fields");
+                String thumbnail = fields.getString("thumbnail");
+
                 //In the variable tagArray gets the JSONArray "tags" stored
                 JSONArray tagArray = newsObject.getJSONArray("tags");
 
@@ -191,7 +196,7 @@ public final class QueryUtils {
 
                         // Create a new {@link OneNews} object with the rubric, title, dateAndTime,
                         // and url and author from the JSON response.
-                        OneNews testObject = new OneNews(rubric, title, dateAndTime, url, author);
+                        OneNews testObject = new OneNews(rubric, title, dateAndTime, url, author, thumbnail);
                         news.add(testObject);
                     }
                 }
@@ -201,7 +206,7 @@ public final class QueryUtils {
             // If an error is thrown when executing any of the above statements in the "try" block,
             // catch the exception here, so the app doesn't crash. Print a log message
             // with the message from the exception.
-            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+            Log.e("QueryUtils", "Problem parsing the news JSON results", e);
         }
 
         // Return the list of news

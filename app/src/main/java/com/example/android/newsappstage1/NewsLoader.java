@@ -2,6 +2,7 @@ package com.example.android.newsappstage1;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
+
 import java.util.List;
 
 public class NewsLoader extends AsyncTaskLoader<List<OneNews>> {
@@ -16,15 +17,15 @@ public class NewsLoader extends AsyncTaskLoader<List<OneNews>> {
      * Constructs a new {@link NewsLoader}.
      *
      * @param context of the activity
-     *      @param url to load data from
+     * @param url     to load data from
      */
-    public NewsLoader(Context context, String url){
+    public NewsLoader(Context context, String url) {
         super(context);
-        mUrl=url;
+        mUrl = url;
     }
 
     @Override
-    protected void onStartLoading(){
+    protected void onStartLoading() {
         forceLoad();
     }
 
@@ -32,16 +33,14 @@ public class NewsLoader extends AsyncTaskLoader<List<OneNews>> {
      * This is on a background thread.
      */
     @Override
-    public List<OneNews> loadInBackground(){
-        if(mUrl==null){
+    public List<OneNews> loadInBackground() {
+        if (mUrl == null) {
             return null;
         }
 
         // Perform the network request, parse the response, and extract a list of OneNews objects.
-        List<OneNews> news=QueryUtils.fetchNewsData(mUrl);
+        List<OneNews> news = QueryUtils.fetchNewsData(mUrl);
         return news;
     }
-
-
 
 }
